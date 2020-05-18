@@ -1,12 +1,14 @@
-package Ataques_strategy;
+package Tests;
 
-public class Test {
+import Ataques_strategy.*;
+
+public class StrategyTest {
     public static void main(String[] args) {
-        Strategy captacion = new Captacion();
-        Strategy acusacion = new Acusacion();
-        Strategy justificacion = new Justificacion();
-        Strategy punalada = new PunaladaTrapera();
-        Strategy caradura = new CaraduraLegendario();
+        Ataques_strategy.Strategy captacion = new Captacion();
+        Ataques_strategy.Strategy acusacion = new Acusacion();
+        Ataques_strategy.Strategy justificacion = new Justificacion();
+        Ataques_strategy.Strategy punalada = new PunaladaTrapera();
+        Ataques_strategy.Strategy caradura = new CaraduraLegendario();
 
         Atacar ataque1 = new Atacar(captacion);
         Atacar ataque2 = new Atacar(acusacion);
