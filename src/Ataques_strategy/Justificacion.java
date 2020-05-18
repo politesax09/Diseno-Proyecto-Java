@@ -8,10 +8,10 @@ public class Justificacion implements Strategy {
     protected final double AFINES = 0;
 
     // Total: 0(contrarios) + 1.5(indecisos) + 0(afines) = 1.5
-    protected double increment = CONTRARIOS + INDECISOS - AFINES;
+    protected double gain = CONTRARIOS + INDECISOS - AFINES;
 
     @Override
     public void ataque() {
-        System.out.println("Justificacion: " + increment);
+        System.out.println("Justificacion: " + gain);
     }
 }

@@ -8,10 +8,10 @@ public class Captacion implements Strategy {
     protected final double AFINES = 0;
 
     // Total: 0.5(contrarios) + 2(indecisos) + 0(afines) = 2.5
-    protected double increment = CONTRARIOS + INDECISOS - AFINES;
+    protected double gain = CONTRARIOS + INDECISOS - AFINES;
 
     @Override
     public void ataque() {
-        System.out.println("Captacion: " + increment);
+        System.out.println("Captacion: " + gain);
     }
 }

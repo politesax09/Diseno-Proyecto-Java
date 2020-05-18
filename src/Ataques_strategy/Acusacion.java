@@ -3,15 +3,28 @@ package Ataques_strategy;
 /* --contrarios -> ++afines */
 public class Acusacion implements Strategy {
 
-    protected final double CONTRARIOS = 3;    // Restar: 3
-    protected final double INDECISOS = 0;
-    protected final double AFINES = 0;
-
-    // Total: 3(contrarios) + 0(indecisos) + 0(afines) = 3
-    protected double increment = CONTRARIOS + INDECISOS - AFINES;
+    // Son porcentuales
+    public final double CONTRARIOS = 3;    // Restar: 3
+    public final double INDECISOS = 0;
+    public final double AFINES = 0;
 
     @Override
     public void ataque() {
-        System.out.println("Acusacion: " + increment);
+        System.out.println("Acusacion: ");
+    }
+
+    @Override
+    public double contrarios() {
+        return CONTRARIOS;
+    }
+
+    @Override
+    public double indecisos() {
+        return INDECISOS;
+    }
+
+    @Override
+    public double afines() {
+        return AFINES;
     }
 }

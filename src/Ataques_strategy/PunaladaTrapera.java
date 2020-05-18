@@ -9,10 +9,10 @@ public class PunaladaTrapera implements Strategy {
     protected final double AFINES = 1;       // Restar: 1
 
     // Total: 5(contrarios) + 0.5(indecisos) - 1(afines) = 4.5
-    protected double increment = CONTRARIOS + INDECISOS - AFINES;
+    protected double gain = CONTRARIOS + INDECISOS - AFINES;
 
     @Override
     public void ataque() {
-        System.out.println("PunaladaTrapera: " + increment);
+        System.out.println("PunaladaTrapera: " + gain);
     }
 }
