@@ -3,6 +3,7 @@ package Calculos_singleton;
 import Ataques_strategy.*;
 import Politicos.*;
 
+// TODO: 19/5/20 Idea: Meter todas las variables en obj. Politico, metiendo clases en su clase
 public class Singleton {
     private static Singleton instance;
 
@@ -23,7 +24,7 @@ public class Singleton {
     private Singleton() {}
 
     // Actua de constructor
-    private static Singleton instanciate() {
+    public static Singleton instanciate() {
         if (instance == null)
             instance = new Singleton();
         else
@@ -33,11 +34,11 @@ public class Singleton {
     }
 
     public void resultPlayer() {
-        playerResult = player.getAttack() * playerAttack.gain - enemy.getDefence() * 0.5;
+        playerResult = player.getAttack() * playerAttack.attack() - enemy.getDefence() * 0.5;
     }
 
     public void resultEnemy() {
-        enemyResult = enemy.getAttack() * enemyAttack.gain - player.getDefence() * 0.5;
+        enemyResult = enemy.getAttack() * enemyAttack.attack() - player.getDefence() * 0.5;
     }
 
     public double getPlayerResult() {
@@ -64,5 +65,12 @@ public class Singleton {
         this.enemyAttack = enemyAttack;
     }
 
+    public String enemyAttackName() {
+        return enemyAttack.name();
+    }
+
+    public String playerAttackName() {
+        return playerAttack.name();
+    }
 
 }
