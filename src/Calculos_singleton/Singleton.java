@@ -3,6 +3,8 @@ package Calculos_singleton;
 import Ataques_strategy.*;
 import Politicos.*;
 
+import java.util.List;
+
 // TODO: 20/5/20 No se puede devolver el porcentage total de ganancia porq hay que aplicarlo por separado en varios sitios
 // TODO: 19/5/20 IDEA: Meter todas las variables en obj. Politico, metiendo clases en su clase
 // TODO: 20/5/20 Aleatorizar cuando todo funcione
@@ -17,8 +19,6 @@ public class Singleton {
     private Politico enemy;
     private Atacar playerAttack;
     private Atacar enemyAttack;
-    private double playerResult;
-    private double enemyResult;
 
     private double playerFollowers;
     private double enemyFollowers;
@@ -40,7 +40,7 @@ public class Singleton {
         return instance;
     }
 
-    protected void inicialiceFollowers() {
+    public void inicialiceFollowers() {
         playerFollowers = 0.1 * TOTAL_FOLLOWERS;
         enemyFollowers = 0.1 * TOTAL_FOLLOWERS;
         updateUndecidedFollowers();
@@ -51,30 +51,47 @@ public class Singleton {
     }
 
     // Total gain for player (%)
-    public void resultPlayer() {
-        playerResult = (player.getAttack() * playerAttack.() - enemy.getDefence() * 0.5) / 100;
+    public double[] resultPlayer() {
+//        playerResult = (player.getAttack() * playerAttack.() - enemy.getDefence() * 0.5) / 100;
+        // Porcentaje del contrario ganado
+        double contrariosGain = player.getAttack() * playerAttack.attack(ATTACKSTAT_CONTRARIOS);
+        // Porcentaje de defensa del contrario
+        double contrariosDefence = enemy.getDefence() * enemyAttack.attack(ATTACKSTAT_AFINES);
+        // Porcentaje de indecisos ganado
+        double indecisosGain = player.getRecruitment() * playerAttack.attack(ATTACKSTAT_INDECISOS);
+
+        return new double[]{contrariosGain, contrariosDefence, indecisosGain};
     }
 
     // Total gain for enemy (%)
-    public void resultEnemy() {
-//        enemyResult = (enemy.getAttack() * enemyAttack.attack(ATTAC) - player.getDefence() * 0.5) / 100;
+    public double[] resultEnemy() {
         // TODO: 22/5/20 Aplicar defensa de player en la formula
-        double contrariosGain = enemy.getAttack() * enemyAttack.attack(ATTACKSTAT_CONTRARIOS) - player.getDefence() * playerAttack.attack(ATTACKSTAT_AFINES);
+        // Porcentaje del contrario ganado
+        double contrariosGain = enemy.getAttack() * enemyAttack.attack(ATTACKSTAT_CONTRARIOS);
+        // Porcentaje de defensa del contrario
+        double contrariosDefence = player.getDefence() * playerAttack.attack(ATTACKSTAT_AFINES);
+        // Porcentaje de indecisos ganado
         double indecisosGain = enemy.getRecruitment() * enemyAttack.attack(ATTACKSTAT_INDECISOS);
-        enemyResult =
 
+        return new double[]{contrariosGain, contrariosDefence, indecisosGain};
     }
 
-    public double getPlayerResult() {
-        return playerResult;
-    }
+    public void calculateFollowers() {
+        double statsPlayer[] = resultPlayer();
+        double statsEnemy[] = resultEnemy();
 
-    public double getEnemyResult() {
-        return enemyResult;
-    }
-
-    public double calculateFollowers() {
-        playerFollowers = playerFollowers + ()
+        // Ganancia player
+        playerFollowers = playerFollowers +
+                enemyFollowers * (statsPlayer[0] - statsPlayer[1]) +
+                undecidedFollowers * statsPlayer[2];
+        // Ganancia enemy
+        enemyFollowers = enemyFollowers +
+                enemyFollowers * (statsEnemy[0] - statsEnemy[1]) +
+                undecidedFollowers * statsEnemy[2];
+        // Perdida player
+        playerFollowers -= (statsEnemy[0] - statsEnemy[1]);
+        // Perdida enemy
+        enemyFollowers -= (statsPlayer[0] - statsPlayer[1]);
     }
 
     public void setPlayer(Politico player) {
@@ -99,6 +116,13 @@ public class Singleton {
 
     public String playerAttackName() {
         return playerAttack.name();
+    }
+
+    public void printFollowers() {
+        System.out.println("Player: " + playerFollowers);
+        System.out.println("Enemy: " + enemyFollowers);
+        System.out.println("Undecided: " + undecidedFollowers);
+
     }
 
 }

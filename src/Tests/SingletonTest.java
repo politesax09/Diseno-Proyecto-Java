@@ -17,13 +17,13 @@ public class SingletonTest {
 
         singleton.setPlayer(playerSanchez);
         singleton.setEnemy(enemySanchez);
+        singleton.inicialiceFollowers();
         singleton.setPlayerAttack(attack);
         singleton.setEnemyAttack(attack);
-        singleton.resultPlayer();
-        singleton.resultEnemy();
 
-        System.out.println("Resultado Jugador: " + singleton.getPlayerResult());
-        System.out.println("Resultado Jugador: " + singleton.getEnemyResult());
+        singleton.calculateFollowers();
+        singleton.printFollowers();
+
 
 
     }

@@ -7,7 +7,7 @@ public class Acusacion implements Strategy {
     protected final String NAME = "Acusacion";
 
     // Son porcentuales
-    public final double CONTRARIOS = 3;    // Restar: 3
+    public final double CONTRARIOS = 0.03;    // 3%
     public final double INDECISOS = 0;
     public final double AFINES = 0;
 
@@ -18,22 +18,7 @@ public class Acusacion implements Strategy {
 
     @Override
     public double[] attackStats() {
-        double stats[] = {contrarios(), indecisos(), afines()};
+        double stats[] = {CONTRARIOS, INDECISOS, AFINES};
         return stats;
-    }
-
-    @Override
-    public double contrarios() {
-        return CONTRARIOS;
-    }
-
-    @Override
-    public double indecisos() {
-        return INDECISOS;
-    }
-
-    @Override
-    public double afines() {
-        return AFINES;
     }
 }
