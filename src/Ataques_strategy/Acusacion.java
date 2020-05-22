@@ -17,6 +17,12 @@ public class Acusacion implements Strategy {
     }
 
     @Override
+    public double[] attackStats() {
+        double stats[] = {contrarios(), indecisos(), afines()};
+        return stats;
+    }
+
+    @Override
     public double contrarios() {
         return CONTRARIOS;
     }
