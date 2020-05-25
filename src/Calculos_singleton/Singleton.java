@@ -3,9 +3,9 @@ package Calculos_singleton;
 import Ataques_strategy.*;
 import Politicos.*;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.List;
 
-// TODO: 20/5/20 No se puede devolver el porcentage total de ganancia porq hay que aplicarlo por separado en varios sitios
 // TODO: 19/5/20 IDEA: Meter todas las variables en obj. Politico, metiendo clases en su clase
 // TODO: 20/5/20 Aleatorizar cuando todo funcione
 public class Singleton {
@@ -52,7 +52,6 @@ public class Singleton {
 
     // Total gain for player (%)
     public double[] resultPlayer() {
-//        playerResult = (player.getAttack() * playerAttack.() - enemy.getDefence() * 0.5) / 100;
         // Porcentaje del contrario ganado
         double contrariosGain = player.getAttack() * playerAttack.attack(ATTACKSTAT_CONTRARIOS);
         // Porcentaje de defensa del contrario
@@ -92,6 +91,8 @@ public class Singleton {
         playerFollowers -= (statsEnemy[0] - statsEnemy[1]);
         // Perdida enemy
         enemyFollowers -= (statsPlayer[0] - statsPlayer[1]);
+
+        updateUndecidedFollowers();
     }
 
     public void setPlayer(Politico player) {
@@ -109,20 +110,25 @@ public class Singleton {
     public void setEnemyAttack(Atacar enemyAttack) {
         this.enemyAttack = enemyAttack;
     }
-
-    public String enemyAttackName() {
-        return enemyAttack.name();
-    }
-
-    public String playerAttackName() {
-        return playerAttack.name();
-    }
+//
+//    public String enemyAttackName() {
+//        return enemyAttack.name();
+//    }
+//
+//    public String playerAttackName() {
+//        return playerAttack.name();
+//    }
 
     public void printFollowers() {
         System.out.println("Player: " + playerFollowers);
         System.out.println("Enemy: " + enemyFollowers);
         System.out.println("Undecided: " + undecidedFollowers);
 
+    }
+
+    public void printAttackName() {
+        System.out.println("Player attack: " + playerAttack.name());
+        System.out.println("Enemy attack: " + enemyAttack.name());
     }
 
 }

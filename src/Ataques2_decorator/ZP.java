@@ -16,9 +16,9 @@ public class ZP extends Decorator {
         System.out.println("ZP: Change stats");
     }
 
-    @Override
-    public void decorate() {
-        super.decorate();
-        changeStats();
-    }
+//    @Override
+//    public void decorate() {
+//        super.decorate();
+//        changeStats();
+//    }
 }

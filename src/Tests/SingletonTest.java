@@ -22,6 +22,7 @@ public class SingletonTest {
         singleton.setEnemyAttack(attack);
 
         singleton.calculateFollowers();
+        singleton.printAttackName();
         singleton.printFollowers();
 
 

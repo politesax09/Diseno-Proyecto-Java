@@ -15,9 +15,9 @@ public class RJ extends Decorator {
         System.out.println("RJ: Change stats");
     }
 
-    @Override
-    public void decorate() {
-        super.decorate();
-        changeStats();
-    }
+//    @Override
+//    public void decorate() {
+//        super.decorate();
+//        changeStats();
+//    }
 }

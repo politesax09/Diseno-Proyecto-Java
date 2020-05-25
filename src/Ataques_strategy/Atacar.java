@@ -1,6 +1,5 @@
 package Ataques_strategy;
 
-// TODO: 18/5/20 Usar metodo de estrategia para devolver los valores a Singleton
 // TODO: 17/5/20 Aleatorizar un poco todas las estadisticas cuando todo funcione
 
 public class Atacar {
@@ -18,11 +17,8 @@ public class Atacar {
         return strategy.nombre();
     }
 
-    // Calcula la ganancia de audiencia del politico que usa este ataque
     // Devuelve un array con las tres estadisticas del ataque
     public double[] attack() {
-//        gain = strategy.contrarios() + strategy.indecisos() - strategy.afines();
-
         return strategy.attackStats();
     }
 
