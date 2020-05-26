@@ -1,5 +1,6 @@
 package Calculos_singleton;
 
+import Ataques2_decorator.*;
 import Ataques_strategy.*;
 import Politicos.*;
 
@@ -15,10 +16,16 @@ public class Singleton {
     private final int ATTACKSTAT_INDECISOS = 1;
     private final int ATTACKSTAT_AFINES = 2;
 
+    // Param. in methods: activateCaradura() and deactivateCaradura()
+    public final boolean PLAYER = true;
+    public final boolean ENEMY = false;
+
     private Politico player;
     private Politico enemy;
     private Atacar playerAttack;
     private Atacar enemyAttack;
+    private Decorator playerCaradura;
+    private Decorator enemyCaradura;
 
     private double playerFollowers;
     private double enemyFollowers;
@@ -48,6 +55,20 @@ public class Singleton {
 
     protected void updateUndecidedFollowers() {
         undecidedFollowers = TOTAL_FOLLOWERS - playerFollowers - enemyFollowers;
+    }
+
+    public void activateCaradura(boolean flag) {
+        if (flag)
+            playerCaradura.decorate(player);
+        else
+            enemyCaradura.decorate(enemy);
+    }
+
+    public void deactivateCaradura(boolean flag) {
+        if (flag)
+            playerCaradura.unDecorate(player);
+        else
+            enemyCaradura.unDecorate(enemy);
     }
 
     // Total gain for player (%)
@@ -110,7 +131,16 @@ public class Singleton {
     public void setEnemyAttack(Atacar enemyAttack) {
         this.enemyAttack = enemyAttack;
     }
-//
+
+    public void setPlayerCaradura(Decorator playerCaradura) {
+        this.playerCaradura = playerCaradura;
+    }
+
+    public void setEnemyCaradura(Decorator enemyCaradura) {
+        this.enemyCaradura = enemyCaradura;
+    }
+
+    //
 //    public String enemyAttackName() {
 //        return enemyAttack.name();
 //    }

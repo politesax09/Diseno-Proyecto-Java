@@ -1,6 +1,9 @@
 package Tests;
 
 
+import Ataques2_decorator.ConcreteComponent;
+import Ataques2_decorator.Decorator;
+import Ataques2_decorator.FC;
 import Ataques_strategy.*;
 import Calculos_singleton.Singleton;
 import Politicos.*;
@@ -15,16 +18,26 @@ public class SingletonTest {
         Strategy acusacion = new Acusacion();
         Atacar attack = new Atacar(acusacion);
 
+        ConcreteComponent component = new ConcreteComponent();
+        Decorator fc = new FC(component);
+
+        // Inicializar
         singleton.setPlayer(playerSanchez);
         singleton.setEnemy(enemySanchez);
         singleton.inicialiceFollowers();
         singleton.setPlayerAttack(attack);
         singleton.setEnemyAttack(attack);
-
+        singleton.setPlayerCaradura(fc);
+//        singleton.setEnemyCaradura(fc);
+        // Sin decorar
         singleton.calculateFollowers();
         singleton.printAttackName();
         singleton.printFollowers();
-
+        // Decorado
+        singleton.activateCaradura(singleton.PLAYER);
+        singleton.calculateFollowers();
+        singleton.printAttackName();
+        singleton.printFollowers();
 
 
     }
