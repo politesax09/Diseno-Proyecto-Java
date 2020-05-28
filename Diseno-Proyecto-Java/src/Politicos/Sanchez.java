@@ -1,7 +1,7 @@
 package Politicos;
 
-public class Sanchez extends Politico {
-
+public class Sanchez extends Politico
+{
     public Sanchez() {
         this.name = "Sanchez";
         this.attack = 5;

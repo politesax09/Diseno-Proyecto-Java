@@ -1,0 +1,36 @@
+Debate de políticos.
+
+PERSONAJE:
+Este juego es una simulación/parodia de un debate político.
+Tienes 5 políticos de entre los cuales deberás elegir uno.
+Tras elegir tu personaje, puedes elegir un personaje a invocar, llamado "caradura legendario".
+Este invocable te permite tener mejoras durante cierto número de turnos o de efecto instantáneo.
+El rival y su invocable se elegirá aleatoriamente en cada ronda.
+
+PARTIDA:
+Durante la partida, tu objetivo será reclutar el mayor número de seguidores antes de que se realice las elecciones.
+Tienes 10 dias antes de que empiecen las elecciones.
+Exiten 3 variables importantes en este punto: Tus seguidores, los seguidores del rival y los que no tienen seguidor.
+La suma total de ellos es de 47M (La población de España).
+Puedes intentar reclutar a gente que no tienen a quien seguir o intentar robar los seguidores de tu rival.
+
+COMBATE:
+Existen 3 estadísticas distintas: Ataque, defensa y reclutamiento.
+ATAQUE: Es la estadística que indica en qué cantidad puedes robarle seguidores a tu rival.
+DEFENSA: Es la estadística que indica en qué cantidad puedes defender a tus seguidores.
+RECLUTAMIENTO: Es la estadística que indica en qué cantidad puedes reclutar a gente que no tiene seguidor.
+
+COMBATE 2:
+Existen distintos tipos de ataque:
+CAPTAR: Intenta llamar la atención de aquellos que no saben a quién votar, además de que también robas ligeramente seguidores del rival.
+ACUSAR: Intentas 
+PUÑALADA TRAPERA: Intentas destapar toda la corrupción de tu rival, consiguiendo robar un gran porcentaje de seguidores del rival a la vez
+			que llamas la atención de gente sin seguidor, pero a cambio puede que algunos de tus seguidores ya no quieran votarte.
+JUSTIFICAR: Intentas repeler todo ataque del rival, transmitiendo tus promesas de manera correcta, consiguiendo que ese ataque no te haga tanto
+		daño y además llamas la atención a gente sin seguidor.
+INVOCACIÓN: Invocas el espíritu de un caradura legendario para que te apoye en el debate, consiguiendo numerosas ventajas temporales o instantáneas.
+		Solo se puede usar a partir del dia 2.
+
+EXTRAS:
+Entre los dias 3 y 8 del debate, es posible que haya sucesos que te beneficien o te perjudiquen, denominados eventos aleatorios.
+Estos servirán para darle un toque de azar en el debate, y estos eventos solo permitirán que RECLUTES gente o la pierdas.

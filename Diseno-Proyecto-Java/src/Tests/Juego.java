@@ -1,8 +1,7 @@
 package Tests;
 import java.util.Scanner;
+import Politicos.*;
 
-import Politicos.Politico;
-import Politicos.Sanchez;
 
 public class Juego
 {
@@ -51,25 +50,26 @@ public class Juego
 		System.out.println("Tienes 10 turnos antes de que se realicen las elecciones. Demuestra quién sabe gobernar!");
 	}
 	
+	
 	static void jugar()
 	{
 		Scanner scan = new Scanner(System.in);
 		Politico jugador, enemigo;
-		int politico;
+		int opcion;
 		
 		System.out.println("Elige tu personaje:");		
 		
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
+		System.out.println("1. Sanchez 		[ATQ: DEF: REC:]");
+		System.out.println("2. Iglesias 	[ATQ: DEF: REC:]");
+		System.out.println("3. Abascal		[ATQ: DEF: REC:]");
+		System.out.println("4. Casado 		[ATQ: DEF: REC:]");
+		System.out.println("5. Rivera 		[ATQ: DEF: REC:]");
 		
 		do
 		{
-			politico = scan.next().charAt(0);
+			opcion = scan.next().charAt(0);
 			
-			switch(politico)
+			switch(opcion)
 			{
 				case 1:
 					jugador = new Sanchez();
@@ -87,12 +87,50 @@ public class Juego
 					jugador = new Rivera();	
 					break;
 				default:
-					break;					
+					break;
 			}
+		}
+		while(opcion < 1|| opcion > 5);
 			
-			politico = ((int) (Math.random() * 4)) + 1;			
+			System.out.println("Elige tu 'caradura legendario':");
 			
-			switch(politico)
+			System.out.println("1. Franco		[+3 ataque, 2 turnos]");
+			System.out.println("2. Rajoy		[+2 defensa, 3 turnos]");
+			System.out.println("3. Zapatero		[stats aleatorias, turnos aleatorios]");
+			System.out.println("4. Blanco		[-50% votantes rivel, -20% votantes tuyos]");
+			System.out.println("5. Botella		[+20% votantes indecisos]");
+			
+			do
+			{
+				opcion = scan.next().charAt(0);
+				
+				switch(opcion)
+				{
+					case 1:
+						//decorar politico con 
+						break;
+					case 2:
+						
+						break;
+					case 3:
+						
+						break;
+					case 4:
+						
+						break;
+					case 5:
+							
+						break;
+					default:
+						break;	
+				}
+			}
+			while(opcion < 1|| opcion > 5);
+			
+			/*Al empezar cada nivel, un politico enemigo aleatorio sale*/
+			opcion = ((int) (Math.random() * 4)) + 1;			
+			
+			switch(opcion)
 			{
 				case 1:
 					enemigo = new Sanchez();
