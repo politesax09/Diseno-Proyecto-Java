@@ -1,9 +1,11 @@
 package Tests;
 
 
-import Ataques2_decorator.*;
+import Ataques2_decorator.ConcreteComponent;
+import Ataques2_decorator.Decorator;
+import Ataques2_decorator.FC;
 import Ataques_strategy.*;
-import Calculos_singleton.*;
+import Calculos_singleton.Singleton;
 import Politicos.*;
 
 public class SingletonTest {
