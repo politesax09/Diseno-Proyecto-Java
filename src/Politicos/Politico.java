@@ -1,10 +1,19 @@
 package Politicos;
 
+import Ataques2_decorator.Decorator;
+import Ataques_strategy.*;
+
 public abstract class Politico {
     protected String name;
-    protected int attack;
-    protected int defence;
-    protected int recruitment;
+    protected int attackStat;
+    protected int defenceStat;
+    protected int recruitStat;
+
+    protected Atacar attack;
+    protected Decorator caradura;
+    protected double followers;
+
+    protected boolean actCaradura = false;
 
     public String getName() {
         return name;
@@ -15,32 +24,72 @@ public abstract class Politico {
     }
 
     public void setStats(double attack, double defence, double recruit) {
-        this.attack = (int)attack;
-        this.defence = (int)defence;
-        this.recruitment = (int)recruit;
+        this.attackStat = (int)attack;
+        this.defenceStat = (int)defence;
+        this.recruitStat = (int)recruit;
     }
 
-    public int getAttack() {
+    public int getAttackStat() {
+        return attackStat;
+    }
+
+    public void setAttackStat(int attackStat) {
+        this.attackStat = attackStat;
+    }
+
+    public int getDefenceStat() {
+        return defenceStat;
+    }
+
+    public void setDefenceStat(int defenceStat) {
+        this.defenceStat = defenceStat;
+    }
+
+    public int getRecruitStat() {
+        return recruitStat;
+    }
+
+    public void setRecruitStat(int recruitStat) {
+        this.recruitStat = recruitStat;
+    }
+
+    public Atacar getAttack() {
         return attack;
     }
 
-    public void setAttack(int attack) {
+    public void setAttack(Atacar attack) {
         this.attack = attack;
     }
 
-    public int getDefence() {
-        return defence;
+    public Decorator getCaradura() {
+        return caradura;
     }
 
-    public void setDefence(int defence) {
-        this.defence = defence;
+    public void setCaradura(Decorator caradura) {
+        this.caradura = caradura;
     }
 
-    public int getRecruitment() {
-        return recruitment;
+    public double getFollowers() {
+        return followers;
     }
 
-    public void setRecruitment(int recruitment) {
-        this.recruitment = recruitment;
+    public void setFollowers(double followers) {
+        this.followers = followers;
+    }
+
+    public boolean isActCaradura() {
+        return this.actCaradura;
+    }
+
+    public boolean isInjured() {
+        if (this.followers < this.followers / 4)
+            return true;
+        return false;
+    }
+
+    public boolean isDeath() {
+        if (this.followers <= 0)
+            return true;
+        return false;
     }
 }

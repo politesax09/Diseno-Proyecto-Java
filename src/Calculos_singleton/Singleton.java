@@ -2,10 +2,8 @@ package Calculos_singleton;
 
 import Ataques2_decorator.*;
 import Ataques_strategy.*;
+import Estado_state.Caradura;
 import Politicos.*;
-
-import javax.swing.plaf.synth.SynthTextAreaUI;
-import java.util.List;
 
 // TODO: 19/5/20 IDEA: Meter todas las variables en obj. Politico, metiendo clases en su clase
 // TODO: 20/5/20 Aleatorizar cuando todo funcione
@@ -22,13 +20,7 @@ public class Singleton {
 
     private Politico player;
     private Politico enemy;
-    private Atacar playerAttack;
-    private Atacar enemyAttack;
-    private Decorator playerCaradura;
-    private Decorator enemyCaradura;
 
-    private double playerFollowers;
-    private double enemyFollowers;
     private double undecidedFollowers;
     private final double TOTAL_FOLLOWERS = 47000000;    // 47M de personas
 
@@ -48,52 +40,62 @@ public class Singleton {
     }
 
     public void inicialiceFollowers() {
-        playerFollowers = 0.1 * TOTAL_FOLLOWERS;
-        enemyFollowers = 0.1 * TOTAL_FOLLOWERS;
+        player.setFollowers(0.1 * TOTAL_FOLLOWERS);
+        enemy.setFollowers(0.1 * TOTAL_FOLLOWERS);
         updateUndecidedFollowers();
     }
 
     protected void updateUndecidedFollowers() {
-        undecidedFollowers = TOTAL_FOLLOWERS - playerFollowers - enemyFollowers;
+        undecidedFollowers = TOTAL_FOLLOWERS - player.getFollowers() - enemy.getFollowers();
     }
 
     public void activateCaradura(boolean flag) {
         if (flag)
-            playerCaradura.decorate(player);
+            player.getCaradura().decorate(player);
         else
-            enemyCaradura.decorate(enemy);
+            enemy.getCaradura().decorate(enemy);
+
+//        if (flag)
+//            playerCaradura.decorate(player);
+//        else
+//            enemyCaradura.decorate(enemy);
     }
 
     public void deactivateCaradura(boolean flag) {
         if (flag)
-            playerCaradura.unDecorate(player);
+            player.getCaradura().unDecorate(player);
         else
-            enemyCaradura.unDecorate(enemy);
+            enemy.getCaradura().unDecorate(enemy);
+
+//        if (flag)
+//            playerCaradura.unDecorate(player);
+//        else
+//            enemyCaradura.unDecorate(enemy);
     }
 
     // Total gain for player (%)
     public double[] resultPlayer() {
         // Porcentaje del contrario ganado
-        double contrariosGain = player.getAttack() * playerAttack.attack(ATTACKSTAT_CONTRARIOS);
+        double contrariosGain = player.getAttackStat() * player.getAttack().attack(ATTACKSTAT_CONTRARIOS);
         // Porcentaje de defensa del contrario
-        double contrariosDefence = enemy.getDefence() * enemyAttack.attack(ATTACKSTAT_AFINES);
+        double contrarioDefence = enemy.getDefenceStat() * enemy.getAttack().attack(ATTACKSTAT_AFINES);
         // Porcentaje de indecisos ganado
-        double indecisosGain = player.getRecruitment() * playerAttack.attack(ATTACKSTAT_INDECISOS);
+        double indecisosGain = player.getRecruitStat() * player.getAttack().attack(ATTACKSTAT_INDECISOS);
 
-        return new double[]{contrariosGain, contrariosDefence, indecisosGain};
+        return new double[]{contrariosGain, contrarioDefence, indecisosGain};
     }
 
     // Total gain for enemy (%)
     public double[] resultEnemy() {
         // TODO: 22/5/20 Aplicar defensa de player en la formula
         // Porcentaje del contrario ganado
-        double contrariosGain = enemy.getAttack() * enemyAttack.attack(ATTACKSTAT_CONTRARIOS);
+        double contrariosGain = enemy.getAttackStat() * enemy.getAttack().attack(ATTACKSTAT_CONTRARIOS);
         // Porcentaje de defensa del contrario
-        double contrariosDefence = player.getDefence() * playerAttack.attack(ATTACKSTAT_AFINES);
+        double contrarioDefence = player.getDefenceStat() * player.getAttack().attack(ATTACKSTAT_AFINES);
         // Porcentaje de indecisos ganado
-        double indecisosGain = enemy.getRecruitment() * enemyAttack.attack(ATTACKSTAT_INDECISOS);
+        double indecisosGain = enemy.getRecruitStat() * enemy.getAttack().attack(ATTACKSTAT_INDECISOS);
 
-        return new double[]{contrariosGain, contrariosDefence, indecisosGain};
+        return new double[]{contrariosGain, contrarioDefence, indecisosGain};
     }
 
     public void calculateFollowers() {
@@ -101,17 +103,19 @@ public class Singleton {
         double statsEnemy[] = resultEnemy();
 
         // Ganancia player
-        playerFollowers = playerFollowers +
-                enemyFollowers * (statsPlayer[0] - statsPlayer[1]) +
-                undecidedFollowers * statsPlayer[2];
+        player.setFollowers(player.getFollowers() +
+                enemy.getFollowers() * (statsPlayer[0] - statsPlayer[1]) +
+                undecidedFollowers * statsPlayer[2]);
         // Ganancia enemy
-        enemyFollowers = enemyFollowers +
-                enemyFollowers * (statsEnemy[0] - statsEnemy[1]) +
-                undecidedFollowers * statsEnemy[2];
+        enemy.setFollowers(enemy.getFollowers() +
+                player.getFollowers() * (statsEnemy[0] - statsEnemy[1]) +
+                undecidedFollowers * statsEnemy[2]);
         // Perdida player
-        playerFollowers -= (statsEnemy[0] - statsEnemy[1]);
+        if (statsEnemy[0] - statsEnemy[1] > 0)
+            player.setFollowers(player.getFollowers() * (statsEnemy[0] - statsEnemy[1]));
         // Perdida enemy
-        enemyFollowers -= (statsPlayer[0] - statsPlayer[1]);
+        if (statsPlayer[0] - statsPlayer[1] > 0)
+            enemy.setFollowers(enemy.getFollowers() * (statsPlayer[0] - statsPlayer[1]));
 
         updateUndecidedFollowers();
     }
@@ -124,41 +128,32 @@ public class Singleton {
         this.enemy = enemy;
     }
 
-    public void setPlayerAttack(Atacar playerAttack) {
-        this.playerAttack = playerAttack;
+    public void setPlayerAttack(Atacar attack) {
+        player.setAttack(attack);
     }
 
-    public void setEnemyAttack(Atacar enemyAttack) {
-        this.enemyAttack = enemyAttack;
+    public void setEnemyAttack(Atacar attack) {
+        enemy.setAttack(attack);
     }
 
-    public void setPlayerCaradura(Decorator playerCaradura) {
-        this.playerCaradura = playerCaradura;
+    public void setPlayerCaradura(Decorator caradura) {
+        player.setCaradura(caradura);
     }
 
-    public void setEnemyCaradura(Decorator enemyCaradura) {
-        this.enemyCaradura = enemyCaradura;
+    public void setEnemyCaradura(Decorator caradura) {
+        player.setCaradura(caradura);
     }
-
-    //
-//    public String enemyAttackName() {
-//        return enemyAttack.name();
-//    }
-//
-//    public String playerAttackName() {
-//        return playerAttack.name();
-//    }
 
     public void printFollowers() {
-        System.out.println("Player: " + playerFollowers);
-        System.out.println("Enemy: " + enemyFollowers);
+        System.out.println("Player: " + player.getFollowers());
+        System.out.println("Enemy: " + enemy.getFollowers());
         System.out.println("Undecided: " + undecidedFollowers);
 
     }
 
     public void printAttackName() {
-        System.out.println("Player attack: " + playerAttack.name());
-        System.out.println("Enemy attack: " + enemyAttack.name());
+        System.out.println("Player attack: " + player.getAttack().name());
+        System.out.println("Enemy attack: " + enemy.getAttack().name());
     }
 
 }

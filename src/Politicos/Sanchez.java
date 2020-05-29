@@ -4,8 +4,8 @@ public class Sanchez extends Politico
 {
     public Sanchez() {
         this.name = "Sanchez";
-        this.attack = 5;
-        this.defence = 8;
-        this.recruitment = 9;
+        this.attackStat = 5;
+        this.defenceStat = 8;
+        this.recruitStat = 9;
     }
 }

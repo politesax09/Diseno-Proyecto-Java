@@ -14,19 +14,19 @@ public class RJ extends Decorator {
     }
 
     protected void changeStats(Politico politico) {
-        politico.setStats(politico.getAttack() + INC_ATQ,
-                politico.getDefence() + INC_DEF,
-                politico.getRecruitment() + INC_CAP);
+        politico.setStats(politico.getAttackStat() + INC_ATQ,
+                politico.getDefenceStat() + INC_DEF,
+                politico.getRecruitStat() + INC_CAP);
 
-        System.out.println("+FC: " + politico.getAttack() + politico.getDefence() + politico.getRecruitment());
+        System.out.println("+FC: " + politico.getAttackStat() + politico.getDefenceStat() + politico.getRecruitStat());
     }
 
     protected void restoreStats(Politico politico) {
-        politico.setStats(politico.getAttack() - INC_ATQ,
-                politico.getDefence() - INC_DEF,
-                politico.getRecruitment() - INC_CAP);
+        politico.setStats(politico.getAttackStat() - INC_ATQ,
+                politico.getDefenceStat() - INC_DEF,
+                politico.getRecruitStat() - INC_CAP);
 
-        System.out.println("-FC: " + politico.getAttack() + politico.getDefence() + politico.getRecruitment());
+        System.out.println("-FC: " + politico.getAttackStat() + politico.getDefenceStat() + politico.getRecruitStat());
     }
 
     @Override

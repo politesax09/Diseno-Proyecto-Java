@@ -2,14 +2,14 @@ package Estado_state;
 
 import Politicos.*;
 
-public class Death extends State {
+public class Unborn extends State {
 
-    public Death(Politico politico) {
+    public Unborn(Politico politico) {
         super(politico);
     }
 
     @Override
     public State nextState() {
-        return this;
+        return new Alive(this.politico);
     }
 }

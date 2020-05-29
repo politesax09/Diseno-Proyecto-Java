@@ -4,12 +4,12 @@ import Politicos.*;
 
 public class PoliticosTest {
     public static void main(String[] args) {
-        Politico player = new Abascal();
+        Politico player = new Sanchez();
 
         System.out.println(player.getName());
-        System.out.println(player.getAttack());
-        System.out.println(player.getDefence());
-        System.out.println(player.getRecruitment());
+        System.out.println(player.getAttackStat());
+        System.out.println(player.getDefenceStat());
+        System.out.println(player.getRecruitStat());
 
     }
 }
