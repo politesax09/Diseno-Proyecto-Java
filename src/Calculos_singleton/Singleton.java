@@ -72,33 +72,34 @@ public class Singleton {
     }
 
     // Total gain for player (%)
-    public double[] resultPlayer() {
-        // Porcentaje del contrario ganado
-        double contrariosGain = player.getAttack() * playerAttack.attack(ATTACKSTAT_CONTRARIOS);
-        // Porcentaje de defensa del contrario
-        double contrariosDefence = enemy.getDefence() * enemyAttack.attack(ATTACKSTAT_AFINES);
-        // Porcentaje de indecisos ganado
-        double indecisosGain = player.getRecruitment() * playerAttack.attack(ATTACKSTAT_INDECISOS);
+    public double[] result(boolean flag) {
+        double contrariosGain, contrariosDefence, indecisosGain;
 
-        return new double[]{contrariosGain, contrariosDefence, indecisosGain};
-    }
-
-    // Total gain for enemy (%)
-    public double[] resultEnemy() {
-        // TODO: 22/5/20 Aplicar defensa de player en la formula
-        // Porcentaje del contrario ganado
-        double contrariosGain = enemy.getAttack() * enemyAttack.attack(ATTACKSTAT_CONTRARIOS);
-        // Porcentaje de defensa del contrario
-        double contrariosDefence = player.getDefence() * playerAttack.attack(ATTACKSTAT_AFINES);
-        // Porcentaje de indecisos ganado
-        double indecisosGain = enemy.getRecruitment() * enemyAttack.attack(ATTACKSTAT_INDECISOS);
+        if (flag)
+        {
+            // Porcentaje del contrario ganado
+            contrariosGain = player.getAttack() * playerAttack.attack(ATTACKSTAT_CONTRARIOS);
+            // Porcentaje de defensa del contrario
+            contrariosDefence = enemy.getDefence() * enemyAttack.attack(ATTACKSTAT_AFINES);
+            // Porcentaje de indecisos ganado
+            indecisosGain = player.getRecruitment() * playerAttack.attack(ATTACKSTAT_INDECISOS);
+        }
+        else
+        {
+            // Porcentaje del contrario ganado
+            contrariosGain = enemy.getAttack() * enemyAttack.attack(ATTACKSTAT_CONTRARIOS);
+            // Porcentaje de defensa del contrario
+            contrariosDefence = player.getDefence() * playerAttack.attack(ATTACKSTAT_AFINES);
+            // Porcentaje de indecisos ganado
+            indecisosGain = enemy.getRecruitment() * enemyAttack.attack(ATTACKSTAT_INDECISOS);
+        }
 
         return new double[]{contrariosGain, contrariosDefence, indecisosGain};
     }
 
     public void calculateFollowers() {
-        double statsPlayer[] = resultPlayer();
-        double statsEnemy[] = resultEnemy();
+        double statsPlayer[] = result(PLAYER);
+        double statsEnemy[] = result(ENEMY);
 
         // Ganancia player
         playerFollowers = playerFollowers +
