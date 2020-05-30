@@ -2,8 +2,8 @@ package Ataques_strategy;
 
 // TODO: 19/5/20 Compiar al resto de ataques cuando este terminado
 /* --contrarios -> ++afines */
-public class Acusacion implements Strategy {
-
+public class Acusacion implements Strategy
+{
     protected final String NAME = "Acusacion";
 
     // Son porcentuales
@@ -12,12 +12,14 @@ public class Acusacion implements Strategy {
     public final double AFINES = 0;
 
     @Override
-    public String nombre() {
+    public String nombre()
+    {
         return NAME;
     }
 
     @Override
-    public double[] attackStats() {
+    public double[] attackStats()
+    {
         double stats[] = {CONTRARIOS, INDECISOS, AFINES};
         return stats;
     }

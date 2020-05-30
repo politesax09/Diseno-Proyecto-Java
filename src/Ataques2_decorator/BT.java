@@ -15,6 +15,6 @@
 //
 //	protected void addAfines(Politico politico)
 //	{
-//		politico.
+//		politico.setFollowers+= 0.2* [ACCEDER A GENTEQUENOVOTA]
 //	}
 //}

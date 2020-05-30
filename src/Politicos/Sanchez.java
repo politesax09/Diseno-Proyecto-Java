@@ -6,6 +6,6 @@ public class Sanchez extends Politico
         this.name = "Sanchez";
         this.attackStat = 5;
         this.defenceStat = 8;
-        this.recruitStat = 9;
+        this.recruitStat = 8;
     }
 }

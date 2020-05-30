@@ -5,6 +5,6 @@ package Ataques_strategy;
 /* Invoca caradura legendario (ataque sin estadisticas) */
 public class CaraduraLegendario
 {
-
+	
 
 }
