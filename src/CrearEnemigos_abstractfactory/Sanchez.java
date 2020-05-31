@@ -1,7 +1,6 @@
-package Politicos;
+package CrearEnemigos_abstractfactory;
 
-public class Sanchez extends Politico
-{
+public class Sanchez extends Politico {
     public Sanchez() {
         this.name = "Sanchez";
         this.attackStat = 5;

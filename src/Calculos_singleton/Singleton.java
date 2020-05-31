@@ -89,6 +89,8 @@ public class Singleton {
         return new double[]{contrariosGain, contrarioDefence, indecisosGain};
     }
 
+    // TODO: 31/5/20 Calcular bien followers porque al calcular player y luego enemy, enemy gana mas porque los
+    // seguidores de player ya han aumentado entonces se aplica sobre una cantidad erronea
     public void calculateFollowers() {
         double statsPlayer[] = result(PLAYER);
         double statsEnemy[] = result(ENEMY);

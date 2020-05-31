@@ -1,8 +1,7 @@
-package Politicos;
+package CrearEnemigos_abstractfactory;
 
 import Ataques2_decorator.*;
 import Ataques_strategy.*;
-import Calculos_singleton.Singleton;
 
 public abstract class Politico {
     protected String name;

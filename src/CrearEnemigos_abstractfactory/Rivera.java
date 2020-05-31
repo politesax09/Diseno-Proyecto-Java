@@ -1,4 +1,4 @@
-//package Politicos;
+package CrearEnemigos_abstractfactory;//package Politicos;
 //
 //public class Rivera extends Politico
 //{
