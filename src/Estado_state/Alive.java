@@ -6,6 +6,8 @@ public class Alive extends State {
 
     public Alive(Politico politico) {
         super(politico);
+        System.out.println("Estado Alive");
+
     }
 
     @Override

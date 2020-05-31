@@ -6,6 +6,8 @@ public class Death extends State {
 
     public Death(Politico politico) {
         super(politico);
+        System.out.println("Estado Death");
+
     }
 
     @Override

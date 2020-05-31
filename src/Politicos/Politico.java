@@ -1,7 +1,8 @@
 package Politicos;
 
-import Ataques2_decorator.Decorator;
+import Ataques2_decorator.*;
 import Ataques_strategy.*;
+import Calculos_singleton.Singleton;
 
 public abstract class Politico {
     protected String name;
@@ -14,6 +15,9 @@ public abstract class Politico {
     protected double followers;
 
     protected boolean actCaradura = false;
+
+    protected double INJURED_FOLLOWERS = 1000000;
+    protected double DEATH_FOLLOWERS = 0;
 
     public String getName() {
         return name;
@@ -77,18 +81,22 @@ public abstract class Politico {
         this.followers = followers;
     }
 
+    public void setActCaradura(boolean actCaradura) {
+        this.actCaradura = actCaradura;
+    }
+
     public boolean isActCaradura() {
         return this.actCaradura;
     }
 
     public boolean isInjured() {
-        if (this.followers < this.followers / 4)
+        if (this.followers < INJURED_FOLLOWERS && this.followers != DEATH_FOLLOWERS)
             return true;
         return false;
     }
 
     public boolean isDeath() {
-        if (this.followers <= 0)
+        if (this.followers <= DEATH_FOLLOWERS)
             return true;
         return false;
     }

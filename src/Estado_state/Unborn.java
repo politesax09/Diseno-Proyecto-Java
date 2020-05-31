@@ -6,6 +6,7 @@ public class Unborn extends State {
 
     public Unborn(Politico politico) {
         super(politico);
+        System.out.println("Estado Unborn");
     }
 
     @Override

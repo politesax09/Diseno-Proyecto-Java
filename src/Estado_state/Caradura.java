@@ -8,16 +8,18 @@ public class Caradura extends State {
 
     public Caradura(Politico politico) {
         super(politico);
+        System.out.println("Estado Caradura");
+
     }
 
     @Override
     public State nextState() {
-        if (! this.politico.isActCaradura())
+        if (this.politico.isDeath())
+            return new Death(this.politico);
+
+        else if (! this.politico.isActCaradura())
             if (this.politico.isInjured())
                 return new Injured(this.politico);
-
-            else if (this.politico.isDeath())
-                return new Death(this.politico);
 
             else
                 return new Alive(this.politico);

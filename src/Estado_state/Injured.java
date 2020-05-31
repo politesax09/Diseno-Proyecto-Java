@@ -6,6 +6,8 @@ public class Injured extends State {
 
     public Injured(Politico politico) {
         super(politico);
+        System.out.println("Estado Injured");
+
     }
 
     @Override
