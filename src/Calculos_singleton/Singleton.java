@@ -5,7 +5,6 @@ import Ataques_strategy.*;
 import Estado_state.Caradura;
 import Politicos.*;
 
-// TODO: 19/5/20 IDEA: Meter todas las variables en obj. Politico, metiendo clases en su clase
 // TODO: 20/5/20 Aleatorizar cuando todo funcione
 public class Singleton {
     private static Singleton instance;
@@ -54,11 +53,6 @@ public class Singleton {
             player.getCaradura().decorate(player);
         else
             enemy.getCaradura().decorate(enemy);
-
-//        if (flag)
-//            playerCaradura.decorate(player);
-//        else
-//            enemyCaradura.decorate(enemy);
     }
 
     public void deactivateCaradura(boolean flag) {
@@ -66,41 +60,38 @@ public class Singleton {
             player.getCaradura().unDecorate(player);
         else
             enemy.getCaradura().unDecorate(enemy);
-
-//        if (flag)
-//            playerCaradura.unDecorate(player);
-//        else
-//            enemyCaradura.unDecorate(enemy);
     }
 
-    // Total gain for player (%)
-    public double[] resultPlayer() {
-        // Porcentaje del contrario ganado
-        double contrariosGain = player.getAttackStat() * player.getAttack().attack(ATTACKSTAT_CONTRARIOS);
-        // Porcentaje de defensa del contrario
-        double contrarioDefence = enemy.getDefenceStat() * enemy.getAttack().attack(ATTACKSTAT_AFINES);
-        // Porcentaje de indecisos ganado
-        double indecisosGain = player.getRecruitStat() * player.getAttack().attack(ATTACKSTAT_INDECISOS);
+    // Total gain (%)
+    // Param. ENEMY or PLAYER
+    public double[] result(boolean flag) {
+        double contrariosGain, contrarioDefence, indecisosGain;
 
-        return new double[]{contrariosGain, contrarioDefence, indecisosGain};
-    }
-
-    // Total gain for enemy (%)
-    public double[] resultEnemy() {
-        // TODO: 22/5/20 Aplicar defensa de player en la formula
-        // Porcentaje del contrario ganado
-        double contrariosGain = enemy.getAttackStat() * enemy.getAttack().attack(ATTACKSTAT_CONTRARIOS);
-        // Porcentaje de defensa del contrario
-        double contrarioDefence = player.getDefenceStat() * player.getAttack().attack(ATTACKSTAT_AFINES);
-        // Porcentaje de indecisos ganado
-        double indecisosGain = enemy.getRecruitStat() * enemy.getAttack().attack(ATTACKSTAT_INDECISOS);
+        if (flag)
+        {
+            // Porcentaje del contrario ganado
+            contrariosGain = player.getAttackStat() * player.getAttack().attack(ATTACKSTAT_CONTRARIOS);
+            // Porcentaje de defensa del contrario
+            contrarioDefence = enemy.getDefenceStat() * enemy.getAttack().attack(ATTACKSTAT_AFINES);
+            // Porcentaje de indecisos ganado
+            indecisosGain = player.getRecruitStat() * player.getAttack().attack(ATTACKSTAT_INDECISOS);
+        }
+        else
+        {
+            // Porcentaje del contrario ganado
+            contrariosGain = enemy.getAttackStat() * enemy.getAttack().attack(ATTACKSTAT_CONTRARIOS);
+            // Porcentaje de defensa del contrario
+            contrarioDefence = player.getDefenceStat() * player.getAttack().attack(ATTACKSTAT_AFINES);
+            // Porcentaje de indecisos ganado
+            indecisosGain = enemy.getRecruitStat() * enemy.getAttack().attack(ATTACKSTAT_INDECISOS);
+        }
 
         return new double[]{contrariosGain, contrarioDefence, indecisosGain};
     }
 
     public void calculateFollowers() {
-        double statsPlayer[] = resultPlayer();
-        double statsEnemy[] = resultEnemy();
+        double statsPlayer[] = result(PLAYER);
+        double statsEnemy[] = result(ENEMY);
 
         // Ganancia player
         player.setFollowers(player.getFollowers() +
@@ -119,6 +110,8 @@ public class Singleton {
 
         updateUndecidedFollowers();
     }
+
+
 
     public void setPlayer(Politico player) {
         this.player = player;
@@ -143,6 +136,8 @@ public class Singleton {
     public void setEnemyCaradura(Decorator caradura) {
         player.setCaradura(caradura);
     }
+
+
 
     public void printFollowers() {
         System.out.println("Player: " + player.getFollowers());
