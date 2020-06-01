@@ -18,6 +18,8 @@ public abstract class Politico {
     protected double INJURED_FOLLOWERS = 1000000;
     protected double DEATH_FOLLOWERS = 0;
 
+
+
     public String getName() {
         return name;
     }
@@ -80,9 +82,13 @@ public abstract class Politico {
         this.followers = followers;
     }
 
+
+
     public void setActCaradura(boolean actCaradura) {
         this.actCaradura = actCaradura;
     }
+
+
 
     public boolean isActCaradura() {
         return this.actCaradura;

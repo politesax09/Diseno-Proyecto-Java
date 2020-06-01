@@ -1,4 +1,4 @@
-package CrearEnemigos_abstractfactory;//package Politicos;
+package CrearEnemigos_abstractfactory;
 //
 //public class Iglesias extends Politico
 //{

@@ -1,6 +1,7 @@
 package Estado_state;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 public class Alive extends State {
 

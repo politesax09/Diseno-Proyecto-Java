@@ -1,6 +1,7 @@
 package Estado_state;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 // TODO: 29/5/20 A lo mejor hace falta un estado para cuando el enemigo no ha sido creado todavia
 

@@ -1,11 +1,11 @@
 package CrearEnemigos_abstractfactory;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
 
 public interface FactoryEnemy {
-    Politico withFC();
-    Politico withBT();
-    Politico withRJ();
-    Politico withZP();
-    Politico withCB();
+    Politico decorateFC();
+    Politico decorateBT();
+    Politico decorateRJ();
+    Politico decorateZP();
+    Politico decorateCB();
 }

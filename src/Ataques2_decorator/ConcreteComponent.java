@@ -1,6 +1,7 @@
 package Ataques2_decorator;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 public class ConcreteComponent implements Component {
 

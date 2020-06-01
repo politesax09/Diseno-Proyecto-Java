@@ -1,6 +1,7 @@
 package Tests;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 public class PoliticosTest {
     public static void main(String[] args) {

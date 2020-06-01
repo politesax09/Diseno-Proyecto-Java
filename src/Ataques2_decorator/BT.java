@@ -1,8 +1,11 @@
 package Ataques2_decorator;
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 public class BT extends Decorator
 {
+	protected final String NAME = "Botella";
+
 
 	public BT(Component component)
 	{
@@ -13,7 +16,22 @@ public class BT extends Decorator
 
 	}
 
-//	protected void addAfines(Politico politico)
+	@Override
+	public String getName() {
+		return NAME;
+	}
+
+	@Override
+	public int getDays() {
+		return -1;
+	}
+
+	@Override
+	public void updateDays() {
+
+	}
+
+	//	protected void addAfines(Politico politico)
 //	{
 //		politico.setFollowers+= 0.2* [ACCEDER A GENTEQUENOVOTA]
 //	}

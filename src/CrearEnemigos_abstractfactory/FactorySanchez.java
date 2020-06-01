@@ -5,7 +5,7 @@ import Ataques2_decorator.*;
 public class FactorySanchez implements FactoryEnemy {
 
     @Override
-    public Politico withFC() {
+    public Politico decorateFC() {
         Politico sanchez = new Sanchez();
         Component component = new ConcreteComponent();
         Decorator fc = new FC(component);
@@ -14,7 +14,7 @@ public class FactorySanchez implements FactoryEnemy {
     }
 
     @Override
-    public Politico withBT() {
+    public Politico decorateBT() {
         Politico sanchez = new Sanchez();
         Component component = new ConcreteComponent();
         Decorator bt = new BT(component);
@@ -23,7 +23,7 @@ public class FactorySanchez implements FactoryEnemy {
     }
 
     @Override
-    public Politico withRJ() {
+    public Politico decorateRJ() {
         Politico sanchez = new Sanchez();
         Component component = new ConcreteComponent();
         Decorator rj = new RJ(component);
@@ -32,7 +32,7 @@ public class FactorySanchez implements FactoryEnemy {
     }
 
     @Override
-    public Politico withZP() {
+    public Politico decorateZP() {
         Politico sanchez = new Sanchez();
         Component component = new ConcreteComponent();
         Decorator zp = new FC(component);
@@ -41,7 +41,7 @@ public class FactorySanchez implements FactoryEnemy {
     }
 
     @Override
-    public Politico withCB() {
+    public Politico decorateCB() {
         Politico sanchez = new Sanchez();
         Component component = new ConcreteComponent();
         Decorator cb = new CB(component);

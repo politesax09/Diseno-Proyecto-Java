@@ -1,7 +1,8 @@
 package Tests;
 
 import Estado_state.*;
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 public class StateTest {
     public static void main(String[] args) {

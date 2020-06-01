@@ -1,6 +1,7 @@
 package Estado_state;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
+
 
 // TODO: 29/5/20 Comprobar si este estado es necesario
 

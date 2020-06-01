@@ -1,6 +1,6 @@
 package Ataques2_decorator;
 
-import Politicos.*;
+import CrearEnemigos_abstractfactory.*;
 
 public abstract class Decorator implements Component {
 
@@ -12,11 +12,19 @@ public abstract class Decorator implements Component {
 
     @Override
     public void decorate(Politico politico) {
-        component.decorate(politico);
+        if (! politico.isActCaradura())
+            component.decorate(politico);
     }
 
     @Override
     public void unDecorate(Politico politico) {
-        component.unDecorate(politico);
+        if (politico.isActCaradura())
+            component.unDecorate(politico);
     }
+
+    public abstract String getName();
+
+    public abstract int getDays();
+
+    public abstract void updateDays();
 }
