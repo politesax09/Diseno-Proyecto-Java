@@ -5,6 +5,8 @@ import Ataques_strategy.*;
 import Estado_state.*;
 import CrearEnemigos_abstractfactory.*;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
+
 // TODO: 20/5/20 Aleatorizar cuando todo funcione
 public class Singleton {
     private static Singleton instance;
@@ -112,7 +114,7 @@ public class Singleton {
             enemy.politico.setActCaradura(false);
     }
 
-
+// ===============================================================================================================
 
     // Total gain (%)
     // Param. ENEMY or PLAYER
@@ -137,8 +139,19 @@ public class Singleton {
             // Porcentaje de indecisos ganado
             indecisosGain = enemy.politico.getRecruitStat() * enemy.politico.getAttack().attack(ATTACKSTAT_INDECISOS);
         }
+        System.out.println(contrariosGain);
+        System.out.println(contrarioDefence);
+        System.out.println(indecisosGain);
 
         return new double[]{contrariosGain, contrarioDefence, indecisosGain};
+    }
+
+    public double gainStat(double gain, double defence) {
+        if (gain > defence)
+            return (gain - defence);
+        else
+            // Si es negativo se transforma en 0.[playerGainStat] positivo
+            return ((gain - defence) * (-0.1));
     }
 
     public void calculateFollowers() {
@@ -146,27 +159,33 @@ public class Singleton {
         double statsEnemy[] = result(ENEMY);
         double playerFollowers = player.politico.getFollowers();
         double enemyFollowers = enemy.politico.getFollowers();
+        double playerGainStat, enemyGainStat;
 
         System.out.println(player.politico.getFollowers());
         System.out.println(enemy.politico.getFollowers());
 
         // Ganancia player
         player.politico.setFollowers(playerFollowers +
-                enemyFollowers * (statsPlayer[0] - statsPlayer[1]) +
+                enemyFollowers * gainStat(statsPlayer[0], statsPlayer[1]) +
                 undecidedFollowers * statsPlayer[2]);
+
         System.out.println(player.politico.getFollowers());
         System.out.println(enemy.politico.getFollowers());
+
         // Ganancia enemy
         enemy.politico.setFollowers(enemyFollowers +
-                playerFollowers * (statsEnemy[0] - statsEnemy[1]) +
+                playerFollowers * gainStat(statsEnemy[0], statsEnemy[1]) +
                 undecidedFollowers * statsEnemy[2]);
+
         System.out.println(player.politico.getFollowers());
         System.out.println(enemy.politico.getFollowers());
+
         // Perdida player
         if (statsEnemy[0] - statsEnemy[1] > 0)
             player.politico.setFollowers(player.politico.getFollowers() - playerFollowers * (statsEnemy[0] - statsEnemy[1]));
         System.out.println(player.politico.getFollowers());
         System.out.println(enemy.politico.getFollowers());
+
         // Perdida enemy
         if (statsPlayer[0] - statsPlayer[1] > 0)
             enemy.politico.setFollowers(enemy.politico.getFollowers() - enemyFollowers * (statsPlayer[0] - statsPlayer[1]));
@@ -179,7 +198,7 @@ public class Singleton {
         updateDay();
     }
 
-
+// ===============================================================================================================
 
     public void setPlayer(Politico player) {
         this.player = new Unborn(player);
@@ -193,10 +212,20 @@ public class Singleton {
 
     public void setPlayerAttack(Atacar attack) {
         player.politico.setAttack(attack);
+        if (player.politico.getAttack().name() == "Justificacion")
+        {
+            player.politico.setDefenceStat(player.politico.getDefenceStat() + 1);
+            System.out.println("+1 defenceStat");
+        }
     }
 
     public void setEnemyAttack(Atacar attack) {
         enemy.politico.setAttack(attack);
+        if (enemy.politico.getAttack().name() == "Justificacion")
+        {
+            enemy.politico.setDefenceStat(enemy.politico.getDefenceStat() + 1);
+            System.out.println("+1 defenceStat");
+        }
     }
 
     public void setPlayerCaradura(Decorator caradura) {
@@ -207,7 +236,7 @@ public class Singleton {
         player.politico.setCaradura(caradura);
     }
 
-
+// ===============================================================================================================
 
     public void printFollowers() {
         if (player != null)

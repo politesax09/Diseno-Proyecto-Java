@@ -16,6 +16,8 @@ public class SingletonTest {
 
         Strategy acusacion = new Acusacion();
         Atacar attack = new Atacar(acusacion);
+        Strategy jusificacion = new Justificacion();
+        Atacar attack2 = new Atacar(jusificacion);
 
         ConcreteComponent component = new ConcreteComponent();
         Decorator fc = new FC(component);
@@ -30,18 +32,18 @@ public class SingletonTest {
         singleton.printFollowers();
 
         System.out.println("DIA 1");
-        singleton.setPlayerAttack(attack);
+        singleton.setPlayerAttack(attack2);
         singleton.setEnemyAttack(attack);
         // Sin decorar
         singleton.calculateFollowers();
         singleton.printAttackName();
         singleton.printFollowers();
 
-        // Decorado
-        singleton.activateCaradura(singleton.PLAYER);
-        singleton.calculateFollowers();
-        singleton.printAttackName();
-        singleton.printFollowers();
+//        // Decorado
+//        singleton.activateCaradura(singleton.PLAYER);
+//        singleton.calculateFollowers();
+//        singleton.printAttackName();
+//        singleton.printFollowers();
 
 
     }

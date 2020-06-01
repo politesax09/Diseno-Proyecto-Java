@@ -14,7 +14,7 @@ public class Atacar {
     }
 
     public String name() {
-        return strategy.nombre();
+        return strategy.name();
     }
 
     // Devuelve un array con las tres estadisticas del ataque

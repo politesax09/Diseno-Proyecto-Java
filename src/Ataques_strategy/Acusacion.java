@@ -9,10 +9,10 @@ public class Acusacion implements Strategy
     // Son porcentuales
     public final double CONTRARIOS = 0.03;    // 3%
     public final double INDECISOS = 0;
-    public final double AFINES = 0;
+    public final double AFINES = 1;     // No %
 
     @Override
-    public String nombre()
+    public String name()
     {
         return NAME;
     }
@@ -20,7 +20,6 @@ public class Acusacion implements Strategy
     @Override
     public double[] attackStats()
     {
-        double stats[] = {CONTRARIOS, INDECISOS, AFINES};
-        return stats;
+        return new double[] {CONTRARIOS, INDECISOS, AFINES};
     }
 }

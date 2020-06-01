@@ -3,6 +3,6 @@ package Ataques_strategy;
 public interface Strategy
 {
 
-    public String nombre();
+    public String name();
     public double[] attackStats();
 }
