@@ -3,7 +3,8 @@ package Tests;
 import Ataques_strategy.*;
 
 public class StrategyTest {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Strategy acusacion = new Acusacion();
         Strategy justificacion = new Justificacion();
 

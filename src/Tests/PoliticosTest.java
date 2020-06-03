@@ -4,7 +4,8 @@ import CrearEnemigos_abstractfactory.*;
 
 
 public class PoliticosTest {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Politico player = new Sanchez();
 
         System.out.println(player.getName());

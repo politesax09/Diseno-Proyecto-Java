@@ -11,9 +11,6 @@ public class SingletonTest {
     public static void main(String[] args) {
         Singleton singleton = Singleton.instanciate();
 
-//        Politico playerSanchez = new Sanchez();
-//        Politico enemySanchez = new Sanchez();
-
         Strategy acusacion = new Acusacion();
         Atacar attack = new Atacar(acusacion);
         Strategy jusificacion = new Justificacion();
@@ -26,7 +23,7 @@ public class SingletonTest {
         System.out.println("INICIALIZAR");
         singleton.setPlayer(new Sanchez());
         singleton.setEnemy(new Sanchez());
-        //        singleton.setPlayerCaradura(fc);
+        //singleton.setPlayerCaradura(fc);
         singleton.setEnemyCaradura(fc);
         singleton.inicialiceFollowers();
         singleton.printFollowers();
