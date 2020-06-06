@@ -10,8 +10,8 @@ public class DecoratorTest {
 
         ConcreteComponent concreteComponent = new ConcreteComponent();
         FC fc = new FC(concreteComponent);
-//        RJ rj = new RJ(fc);
-//        ZP zp = new ZP(rj);
+        RJ rj = new RJ(fc);
+        ZP zp = new ZP(rj);
         System.out.println(fc.getDays());
         fc.decorate(sanchez);
         fc.unDecorate(sanchez);

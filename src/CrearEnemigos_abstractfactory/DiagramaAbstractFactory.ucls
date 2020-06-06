@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="CrearEnemigos_abstractfactory.FactoryAbascal" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/FactoryAbascal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="184" x="774" y="27"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="CrearEnemigos_abstractfactory.Politico" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/Politico.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="609" width="231" x="503" y="27"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="CrearEnemigos_abstractfactory.Sanchez" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/Sanchez.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="184" x="102" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="CrearEnemigos_abstractfactory.Iglesias" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/Iglesias.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="184" x="326" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="CrearEnemigos_abstractfactory.Rivera" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/Rivera.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="184" x="550" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="CrearEnemigos_abstractfactory.FactoryRivera" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/FactoryRivera.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="184" x="998" y="27"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="CrearEnemigos_abstractfactory.FactoryCasado" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/FactoryCasado.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="184" x="1222" y="27"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="CrearEnemigos_abstractfactory.Casado" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/Casado.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="184" x="774" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="CrearEnemigos_abstractfactory.FactoryEnemy" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/FactoryEnemy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1313" y="329"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="CrearEnemigos_abstractfactory.FactoryIglesias" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/FactoryIglesias.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="184" x="1446" y="27"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="CrearEnemigos_abstractfactory.FactorySanchez" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/FactorySanchez.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="184" x="1670" y="27"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="CrearEnemigos_abstractfactory.Abascal" project="Proyecto-Java" 
+    file="/Proyecto-Java/src/CrearEnemigos_abstractfactory/Abascal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="184" x="998" y="676"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="13">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="14">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <realization id="15">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="16">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <realization id="18">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <realization id="20">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <realization id="22">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
